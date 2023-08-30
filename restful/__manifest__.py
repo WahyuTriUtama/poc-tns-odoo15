@@ -1,0 +1,16 @@
+{
+    "name": "RESTFUL API 14",
+    "version": "14.0.1",
+    "category": "API",
+    "author": "",
+    "website": "",
+    "summary": "RESTFUL API",
+    "support": "",
+    "description": "RESTFUL API 14",
+    "depends": ["web", "base_setup"],
+    "data": ["views/ir_model.xml", "views/res_users.xml", "security/ir.model.access.csv",],
+    "images": ["static/description/main_screenshot.png"],
+    "license": "LGPL-3",
+    "installable": True,
+    "auto_install": False,
+}
