@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data> 
+    
+        <!-- primary|extension Inherited .:Form:. view for "model" -->
+        <record id="view_picking_intg_form_inherited" model="ir.ui.view">
+            <field name="name">view.picking.intg.form.inherited</field>
+            <field name="model">stock.picking</field>
+            <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->
+            <field name="inherit_id" ref="stock.view_picking_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='other_infos']/field[@name='company_id']" position="after">
+                    <field name="ref_doc_no"/>
+                    <field name="integration_msg"/>
+                </xpath>
+            </field>
+        </record>
+        <!-- end -->
+
+    </data>
+</odoo>

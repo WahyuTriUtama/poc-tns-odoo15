@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- new -->
+    <record id="view_wizard_po_gr_list" model="ir.ui.view">
+        <field name="name">wizard.po_gr.list</field>
+        <field name="model">package.get.po.wizard</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <form string="Wizard ERP PO" create="false" edit="false">
+                <field name="json_popover"/>
+                <field name="json_popover_b"/>
+            </form>
+        </field>
+    </record>
+    <!-- end -->
+
+    <!-- action -->
+        <record id="action_wizard_open_po_list" model="ir.actions.act_window">
+            <field name="name">ERP: PO List</field>
+            <field name="res_model">package.get.po.wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_wizard_po_gr_list"/>
+            <!-- <field name="context" eval="{'tx_id': 1}"/> -->
+            <field name="target">new</field>
+        </record>
+        <!-- end -->
+
+        <!-- add button for wizard  -->
+        <record id="view_picking_intg_form_inherited2" model="ir.ui.view">
+            <field name="name">view.picking.intg.form.inherited2</field>
+            <field name="model">stock.picking</field>
+            <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->
+            <field name="inherit_id" ref="stock.view_picking_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='origin']" position="after">
+                    <button name="%(poc_erp_gr.action_wizard_open_po_list)d" type="action" class="fa fa-external-link btn btn-secondary o_external_button"/>
+                    <!-- <button name="%(poc_erp_gr.action_wizard_open_po_list)d" string="Get Source" type="action"/> -->
+                </xpath>
+            </field>
+        </record>
+        <!-- end -->
+</odoo>
